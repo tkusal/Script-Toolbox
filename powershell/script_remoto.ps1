@@ -40,7 +40,8 @@
         .\script_remoto.ps1 -ComputerName "HOSTNAME_DESTINO"
 
     .NOTES
-        Thiago Kusal | ITGX
+        Thiago Kusal
+        SysAdmin | ITGX
         https://tkusal.com.br
     .LINK
         https://github.com/tkusal/Script-Toolbox
