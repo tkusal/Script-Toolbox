@@ -26,10 +26,12 @@
 
     .PARAMETER ComputerName
         É o hostname do dispositivo de destino. Será fornecido pelo próprio PRTG: -ComputerName HOSTNAME_DESTINO
+        Pode-se obter o hosname usado no sensor, através da váriavel do PRTG %host:  -ComputerName %host
 
     .PARAMETER ScriptPath
         Caminho completo do script que será executado no dispositivo de destino. O script deve estar acessível e com permissões adequadas para execução remota.
         O valor padrão é "C:\scripts\teste.ps1", mas deve ser alterado conforme necessário.
+        Caso queira, esse Path pode ser passado como parâmetro pelo PRTG também: -ScriptPath C:\scripts\teste.ps1   (Lembrar de deixar as aspas vazias no script)
 
     .PARAMETER verbose
         Habilita a saída detalhada para o processo de execução do script. Por padrão, está desativado.
@@ -38,7 +40,7 @@
         .\script_remoto.ps1 -ComputerName "HOSTNAME_DESTINO"
 
     .NOTES
-        Thiago Kusal
+        Thiago Kusal | ITGX
         https://tkusal.com.br
     .LINK
         https://github.com/tkusal/Script-Toolbox
@@ -47,7 +49,7 @@
 param(
     [string]$ComputerName = "", # ComputerName deverá ser fornecido pelo PRTG
     [switch]$verbose = $False,
-    [string]$ScriptPath = "C:\scripts\teste.ps1" # Alterar para o caminho e nome do script que deverá ser executado no dispositivo de destino
+    [string]$ScriptPath = "C:\scripts\teste.ps1" # Alterar para o caminho e nome do script que deverá ser executado no dispositivo de destino ou deixar vazio caso queira que o PRTG passe como parâmetro 
 )
 
 $session = New-PSSession -ComputerName $ComputerName
